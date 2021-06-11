@@ -5,14 +5,13 @@ A headless video sharing soultion to adapt to any of your needs
 
 ### API Endpoints
 
-##### `/videos`
 | Method | Endpoint  | Description | Params	| Example	|
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | **GET** | /videos | List videos  | `limit`; `sort` id or views; `sort_order` desc, asc  | {host}/videos  |
-| **GET** | /videos/search  | Search videos  | `keyword`; all /videos params;  | {host}/videos/search  |
 | **GET** | /videos/{video}  | Single video details  | `keyword`; all /videos params;  | {host}/videos/search  |
 | **GET** | /videos/{video}/{field}  | Single video details with custom fields  | `keyword`; all /videos params;  | {host}/videos/search  |
-| **PUT** | /videos/{video}/edit  | Edit single video  | `keyword`; all /videos params;  | {host}/videos/search  |
-| **POST** | /videos  | Upload video  | `keyword`; all /videos params;  | {host}/videos/search  |
-| **DELETE** | /videos/{video}  | Delete a video  | `keyword`; all /videos params;  | {host}/videos/search  |
+| **GET** | /videos/search/{keyword}  | Search videos  | `keyword` + all `/videos` params;  | {host}/videos/search/{keyword}  |
+| **PUT** | /videos/{video}/edit  | Edit single video  | fields to update with their values  | {host}/videos/{video}/edit  |
+| **POST** | /videos  | Upload video  | `file`, `title`, `description`  | {host}/videos  |
+| **DELETE** | /videos/{video}  | Delete a video  | `video`  | {host}/videos/{video}  |
 | **GET** | /videos/search  | Search videos  | `keyword`; all /videos params;  | {host}/videos/search  |
