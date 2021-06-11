@@ -7,5 +7,15 @@ A headless video sharing soultion to adapt to any of your needs
 
 | Method | Endpoint  | Description | Params	| Example	|
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| | **GET**  | List videos  | `limit` int; `sort` id, views; `sort_order` desc, asc  | {host}/videos  |
-| | /videos  | List videos  | limit  | {host}/videos  |
+| **GET** | /videos | List videos  | `limit`; `sort` id or views; `sort_order` desc, asc  | {host}/videos  |
+| **GET** | /videos/search  | Search videos  | `keyword`; all /videos params;  | {host}/videos/search  |
+
+GET: /videos
+	GET: /videos/search/{keyword}
+	GET: /videos/{video}
+		GET: /videos/{video}/edit
+		GET: /videos/{video}/{field}
+	POST: /videos
+		POST: /videos/{video}
+		PUT: /videos/{video}
+		DELETE: /videos/{video}
