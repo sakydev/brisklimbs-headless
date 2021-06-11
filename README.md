@@ -5,6 +5,7 @@ A headless video sharing soultion to adapt to any of your needs
 
 ### API Endpoints
 
+##### `/videos`
 | Method | Endpoint  | Description | Params
 | ------------- | ------------- | ------------- | ------------- |
 | **GET** | /videos | List videos  | `limit`; `sort` id or views; `sort_order` desc, asc    
@@ -14,6 +15,10 @@ A headless video sharing soultion to adapt to any of your needs
 | **PUT** | /videos/{video}/edit  | Edit single video  | fields to update with their values    
 | **POST** | /videos/upload  | Upload video  | `file`, `title`, `description`    
 | **DELETE** | /videos/{video}  | Delete a video  | `video`    
+
+##### `/users`
+| Method | Endpoint  | Description | Params
+| ------------- | ------------- | ------------- | ------------- |
 | **GET** | /users | List users  | `limit`; `sort` id or total_uploads; `sort_order` desc, asc    
 | **GET** | /users/{user}  | Single user details  | `user`    
 | **GET** | /users/{user}/{field}  | Single user details with custom fields  | `keyword` + all /users params;    
