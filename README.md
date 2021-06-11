@@ -81,17 +81,19 @@ A headless video sharing soultion to adapt to any of your needs
 | **PUT** | /admin/settings/{setting}  | Update single setting  | `name`, `value` 
 | **DELETE** | /admin/settings/{setting}  | Delete a setting  |  
 
-##### `/admin/tools`
-| Method | Endpoint  | Description | Params
-| ------------- | ------------- | ------------- | ------------- |
-| **GET** | /users/{user}/subscribers  | Get user subs  | `limit`   
-
 ##### `/admin/stats`
 | Method | Endpoint  | Description | Params
 | ------------- | ------------- | ------------- | ------------- |
-| **GET** | /users/{user}/subscribers  | Get user subs  | `limit`   
+| **GET** | /admin/stats  | Get overall stats  | `limit`
+| **GET** | /admin/stats/videos  | Get video stats  | `limit`
+| **GET** | /admin/stats/users  | Get users stats  | `limit` 
+| **GET** | /admin/stats/server  | Get server usage stats  | `limit`   
 
 ##### `/admin/categories`
 | Method | Endpoint  | Description | Params
 | ------------- | ------------- | ------------- | ------------- |
-| **GET** | /users/{user}/subscribers  | Get user subs  | `limit`   
+| **GET** | /admin/categories  | Get all categories  | `limit`
+| **GET** | /admin/categories/{category}  | Get single category details  | 
+| **PUT** | /admin/categories/{category}/edit  | Update a category  | `name`, `description`
+| **DELETE** | /admin/categories/{category}  | Delete a category  | 
+| **POST** | /admin/categories  | Add new category  | `name`, `description`   
