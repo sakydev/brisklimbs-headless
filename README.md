@@ -5,6 +5,7 @@ A headless video sharing soultion to adapt to any of your needs
 
 ### API Endpoints
 
-| Endpoint  | Description | Params	| Example	|
-| ------------- | ------------- | ------------- | ------------- |
-| /videos  | List videos  | limit: int  | /videos  |
+| Method | Endpoint  | Description | Params	| Example	|
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| | **GET**  | List videos  | `limit` int; `sort` id, views; `sort_order` desc, asc  | {host}/videos  |
+| | /videos  | List videos  | limit  | {host}/videos  |
