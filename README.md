@@ -75,7 +75,11 @@ A headless video sharing soultion to adapt to any of your needs
 ##### `/admin/settings`
 | Method | Endpoint  | Description | Params
 | ------------- | ------------- | ------------- | ------------- |
-| **GET** | /users/{user}/subscribers  | Get user subs  | `limit`   
+| **GET** | /admin/settings  | Get overall settings  | `limit` 
+| **POST** | /admin/settings  | Add a new setting  | `name`, `value` 
+| **PUT** | /admin/settings  | Update settings in bulk  | a list of `name`, `value`
+| **PUT** | /admin/settings/{setting}  | Update single setting  | `name`, `value` 
+| **DELETE** | /admin/settings/{setting}  | Delete a setting  |  
 
 ##### `/admin/tools`
 | Method | Endpoint  | Description | Params
