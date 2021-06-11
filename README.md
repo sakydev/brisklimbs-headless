@@ -1,4 +1,4 @@
-## BriskLimbs Headless
+## BriskLimbs Headless [A work in progress]
 A headless video sharing soultion to adapt to any of your needs
 
 **Note**: This is very initial draft of what this project is going to be. This is far from being useful. But you're welcome to explore :)
@@ -67,7 +67,10 @@ A headless video sharing soultion to adapt to any of your needs
 ##### `/users/{user}/favorites`
 | Method | Endpoint  | Description | Params
 | ------------- | ------------- | ------------- | ------------- |
-| **GET** | /users/{user}/subscribers  | Get user subs  | `limit`   
+| **GET** | /users/{user}/favorites  | Get user favorites  | `limit` 
+| **POST** | /users/{user}/favorites  | Add a video to favorites  | `video` 
+| **DELETE** | /users/{user}/favorites  | Delete entire favorites  | `limit` 
+| **DELETE** | /users/{user}/favorites/{video}  | Delete a single item from favorites  | `limit`   
 
 ##### `/admin/settings`
 | Method | Endpoint  | Description | Params
