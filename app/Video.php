@@ -55,6 +55,10 @@ class Video extends Model
       }
     }
 
+    if (isset($parameters['keyword'])) {
+      $results->where('title', 'like', '%' . $parameters['keyword'] . '%');
+    }
+
     $results = $results->skip($additional_params['start']);
     $results = $results->take($additional_params['limit']);
     $results = $results->orderBy($sorting_params['sort_by'], $sorting_params['order_by']);

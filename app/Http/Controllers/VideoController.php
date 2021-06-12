@@ -19,6 +19,13 @@ class VideoController extends Controller
       return api_response($results, 200);
     }
 
+    public function search($keyword)
+    {
+      $videos = new Video;
+      $results = $videos->list(['keyword' => $keyword]);
+      return api_response($results, 200);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
