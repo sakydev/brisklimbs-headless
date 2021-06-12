@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* Authentication routes */
 Route::post('/register', 'UserController@register');
 Route::post('/login', 'UserController@login');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['prefix' => 'videos', 'middleware' => ['auth:sanctum']], function() {
+  Route::get('/','VideoController@index');
 });
