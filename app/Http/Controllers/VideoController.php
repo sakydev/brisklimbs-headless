@@ -19,10 +19,12 @@ class VideoController extends Controller
       return api_response($results, 200);
     }
 
-    public function search($keyword)
+    public function search(Request $request, $keyword)
     {
       $videos = new Video;
-      $results = $videos->list(['keyword' => $keyword]);
+      $parameters = array('keyword' => $keyword);
+      $parameters = array_merge($parameters, $request->all());
+      $results = $videos->list($parameters);
       return api_response($results, 200);
     }
 
