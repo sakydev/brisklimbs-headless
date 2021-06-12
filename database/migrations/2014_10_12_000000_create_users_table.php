@@ -20,6 +20,11 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->enum('status', ['active', 'inactive', 'suspended'])->default('active');
+            $table->enum('level', [1, 2, 3, 4, 5])->default(5);
+            $table->integer('total_videos')->default(0);
+            $table->integer('total_subscribers')->default(0);
+            $table->integer('total_views')->default(0);
             $table->timestamps();
         });
     }
