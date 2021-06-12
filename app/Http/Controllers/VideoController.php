@@ -12,19 +12,11 @@ class VideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+      $videos = new Video;
+      $results = $videos->list($request->all());
+      return api_response($results, 200);
     }
 
     /**
@@ -46,19 +38,9 @@ class VideoController extends Controller
      */
     public function show(Video $video)
     {
-        //
+      return api_response($video, 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Video  $video
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Video $video)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -82,4 +64,4 @@ class VideoController extends Controller
     {
         //
     }
-}
+  }
