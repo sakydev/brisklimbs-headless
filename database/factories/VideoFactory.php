@@ -21,7 +21,7 @@ $factory->define(Video::class, function (Faker $faker) {
     'title' => $faker->realText(40),
     'description' => $faker->paragraph,
     'tags' => implode(',', $faker->words),
-    'category_id' => $faker->randomDigit,
+    'category_id' => $faker->randomDigit(1, 9),
     'scope' => 'public',
     'status' => $status,
     'qualities' => '360, 480, 720',
