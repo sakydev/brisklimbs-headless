@@ -8,7 +8,7 @@ A headless video sharing soultion to adapt to any of your needs
 ##### `/videos`
 | Method | Endpoint  | Description | Params
 | ------------- | ------------- | ------------- | ------------- |
-| **GET** | /videos | List videos  | `scope` [public, private, unlisted]</br>`status` [pending, ok, processing, failed],</br>`state` [active, inactive, frozen]</br>`limit` [results to fetch],</br>`start` [offset to add],</br>`sort_by` [fild to sort by],</br>`order_by` [DESC, ASC]
+| **GET** | /videos | List videos  | `scope` [public, private, unlisted</br>`status` pending, ok, processing, failed</br>`state` active, inactive, frozen</br>`limit` results to fetch</br>`start` offset to add</br>`sort_by` fild to sort by</br>`order_by` DESC, ASC
 | **GET** | /videos/{video}  | Single video details  | `video`    
 | **GET** | /videos/{video}/{field}  | Single video details with custom fields  | `keyword`; all /videos params;    
 | **GET** | /videos/search/{keyword}  | Search videos  | `keyword` + all `/videos` params;    
