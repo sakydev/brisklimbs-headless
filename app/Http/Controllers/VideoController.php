@@ -27,7 +27,7 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
     }
 
     /**
@@ -36,9 +36,10 @@ class VideoController extends Controller
      * @param  \App\Video  $video
      * @return \Illuminate\Http\Response
      */
-    public function show(Video $video)
+    public function show($video)
     {
-      return api_response($video, 200);
+      $result = Video::find($video);
+      return api_response($result, 200, 'no_results');
     }
 
 

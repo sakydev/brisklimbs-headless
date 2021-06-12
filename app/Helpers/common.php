@@ -12,7 +12,17 @@ function pex($a) {
 }
 
 function api_response($data = array(), $status = 200, $message = null) {
+	$pre_built_messages = array(
+		'no_results' => 'No results found'
+	);
+
 	$type = strstr($message, 'error:') ? 'error' : 'message';
+
+	// when data is missing, send out a message automatically
+	if (empty($data) && isset($pre_built_messages[$message])) {
+		$message = $pre_built_messages[$message];
+	}
+
 	return response()->json([
 		$type => $message,
 		'status' => $status,
