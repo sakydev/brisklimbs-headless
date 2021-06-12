@@ -19,8 +19,12 @@ function api_response($data = array(), $status = 200, $message = null) {
 	$type = strstr($message, 'error:') ? 'error' : 'message';
 
 	// when data is missing, send out a message automatically
-	if (empty($data) && isset($pre_built_messages[$message])) {
-		$message = $pre_built_messages[$message];
+	if (isset($pre_built_messages[$message])) {
+		if (empty($data)) {
+			$message = $pre_built_messages[$message];
+		} else {
+			$message = null;
+		}
 	}
 
 	return response()->json([
