@@ -48,10 +48,10 @@ A headless video sharing soultion to adapt to any of your needs
 ##### `/users/{user}/history`
 | Method | Endpoint  | Description | Params
 | ------------- | ------------- | ------------- | ------------- |
-| **GET** | /users/{user}/history  | Get user watch history  | `limit` 
+| **GET** | /users/{user}/history  | Get user watch history  | `limit`</br>`start`
 | **POST** | /users/{user}/history  | Add a video to watch history  | `video` 
-| **DELETE** | /users/{user}/history  | Delete entire watch history  | `limit` 
-| **DELETE** | /users/{user}/history/{video}  | Delete a single item from watch history  | `limit`   
+| **DELETE** | /users/{user}/history  | Delete entire watch history  |  
+| **DELETE** | /users/{user}/history/{video}  | Delete a single item from watch history  |    
 
 ##### `/users/{user}/playlists`
 | Method | Endpoint  | Description | Params
