@@ -22,8 +22,8 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontFlash = [
-        'password',
-        'password_confirmation',
+      'password',
+      'password_confirmation',
     ];
 
     /**
@@ -36,7 +36,7 @@ class Handler extends ExceptionHandler
      */
     public function report(Throwable $exception)
     {
-        parent::report($exception);
+      parent::report($exception);
     }
 
     /**
@@ -50,6 +50,36 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        return parent::render($request, $exception);
+      if ($this->isHttpException($exception)) {
+        $message = $exception->getMessage();
+        switch ($exception->getStatusCode()) {
+          // not authorized
+          case '403':
+            return api_response_error('You are not allowed to access this', 403);
+          break;
+
+          // not found
+          case '404':
+            return api_response_error('Resource not found', 404);
+          break;
+
+          // method not allowed
+          case '405':
+            return api_response_error($message, 405);
+          break;
+
+          // internal error
+          case '500':
+            $message = 'Something went terribly wrong: ' . $message;
+            return api_response_error($message, 500);
+          break;
+
+          default:
+            return api_response_error($message, 400);
+          break;
+        }
+      }
+
+      return parent::render($request, $exception);
     }
-}
+  }

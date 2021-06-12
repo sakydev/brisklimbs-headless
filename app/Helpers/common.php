@@ -17,6 +17,9 @@ function api_response($data = array(), $status = 200, $message = null) {
 	);
 
 	$type = strstr($message, 'error:') ? 'error' : 'message';
+	if ($type == 'error') {
+		$message = str_replace('error:', '', $message);
+	}
 
 	// when data is missing, send out a message automatically
 	if (isset($pre_built_messages[$message])) {
@@ -36,4 +39,8 @@ function api_response($data = array(), $status = 200, $message = null) {
 
 function api_response_message($message, $status) {
 	return api_response(false, $status, $message);
+}
+
+function api_response_error($message, $status) {
+	return api_response(false, $status, 'error: ' . $message);
 }
