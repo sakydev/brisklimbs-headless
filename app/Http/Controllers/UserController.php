@@ -6,21 +6,37 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-  public function register(Request $request)
+  /**
+   * Get a validator for an incoming registration request.
+   *
+   * @param  array  $data
+   * @return \Illuminate\Contracts\Validation\Validator
+   */
+  protected function validator(array $data)
   {
-    $validatedData = $request->validate([
+    return Validator::make($data, [
       'name' => 'required|string|max:255',
       'email' => 'required|string|email|max:255|unique:users',
-      'password' => 'required|string|min:8',
+      'password' => 'required|string|min:4',
     ]);
+  }
+
+  public function register(Request $request)
+  {
+    $validated = $this->validator($request->all());
+    if ($validated->fails()) {
+      $fieldsWithErrors = $validated->messages()->get('*');
+      return api_response($fieldsWithErrors, 422, 'error: incomplete input');
+    }
 
     $user = User::create([
-      'name' => $validatedData['name'],
-      'email' => $validatedData['email'],
-      'password' => Hash::make($validatedData['password']),
+      'name' => $request->name,
+      'email' => $request->email,
+      'password' => Hash::make($request->password),
     ]);
 
     $token = $user->createToken('auth_token')->plainTextToken;
@@ -28,6 +44,7 @@ class UserController extends Controller
     return api_response([
       'access_token' => $token,
       'token_type' => 'Bearer',
+      'data' => $user
     ], 201);
   }
 
