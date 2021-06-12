@@ -25,3 +25,10 @@ Route::group(['prefix' => 'videos', 'middleware' => ['auth:sanctum']], function(
   Route::get('/search/{keyword}','VideoController@search');
   Route::get('/{video}/{field}','VideoController@show');
 });
+
+Route::group(['prefix' => 'users', 'middleware' => ['auth:sanctum']], function() {
+  Route::get('/{user}/history','UserHistoryController@index');
+  Route::post('/{user}/history','UserHistoryController@store');
+  Route::delete('/{user}/history/{video}','UserHistoryController@destroy');
+  Route::delete('/{user}/history','UserHistoryController@destroy');
+});
