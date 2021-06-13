@@ -14,8 +14,8 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if (! $request->expectsJson()) {
-            return api_response_message(400, 'Missing json header');
+        if (!$request->expectsJson()) {
+            
         }
     }
 }

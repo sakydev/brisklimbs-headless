@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 
 class UserHistoryController extends Controller
 {
-  protected function validated($request)
+  protected function validation_fails($data)
   {
-    $validator = Validator::make($request, [
+    $validator = Validator::make($data, [
       'video' => 'required|integer'
     ]);
 
@@ -43,9 +43,9 @@ class UserHistoryController extends Controller
    */
   public function store(Request $request, User $user)
   { 
-    $validated = $this->validated($request->all());
-    if (!empty($validated)) {
-      return $validated;
+    $validation_fails = $this->validation_fails($request->all());
+    if ($validation_fails) {
+      return $validation_fails;
     }
 
     $created = $user->watched()->create([
