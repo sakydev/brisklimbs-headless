@@ -31,4 +31,25 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth:sanctum']], function()
   Route::post('/{user}/history','UserHistoryController@store');
   Route::delete('/{user}/history/{video}','UserHistoryController@destroy');
   Route::delete('/{user}/history','UserHistoryController@destroy');
+
+  // add {user} playlist
+  Route::post('/{user}/playlists', 'PlaylistController@store');
+  
+  // show {user} all playlists
+  Route::get('/{user}/playlists', 'PlaylistController@index');
+  
+// show {user} single playlist
+  Route::get('/{user}/playlists/{playlist}', 'PlaylistController@show');
+
+  // update {user} playlist's details
+  Route::put('/{user}/playlists/{playlist}', 'PlaylistController@update');
+
+  // add {video} to {user} playlist's
+  Route::post('/{user}/playlists/{playlist}', 'PlaylistController@store_item');
+
+  // delete {user} playlist
+  Route::delete('/{user}/playlists/{playlist}', 'PlaylistController@destroy');
+
+  // delete {video} from {user} playlist
+  Route::delete('/{user}/playlists/{playlist}/{video}', 'PlaylistController@destroy_item');
 });
