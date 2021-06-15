@@ -53,3 +53,20 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth:sanctum']], function()
   // delete {video} from {user} playlist
   Route::delete('/{user}/playlists/{playlist}/{video}', 'PlaylistController@destroy_item');
 });
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'admin']], function() {
+  // show all categories
+  Route::get('/categories', 'CategoryController@index');
+
+  // show single category
+  Route::get('/categories/{category}', 'CategoryController@show');
+
+  // update a category
+  Route::put('/categories/{category}', 'CategoryController@update');
+
+  // add new category
+  Route::post('/categories', 'CategoryController@store');
+
+  // delete category
+  Route::delete('/categories/{category}', 'CategoryController@destroy');
+});
