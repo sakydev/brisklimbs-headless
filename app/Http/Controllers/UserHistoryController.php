@@ -32,7 +32,7 @@ class UserHistoryController extends Controller
     $start = $request->filled('start') ? $request->get('start') : 0;
 
     $results = UserHistory::where('user_id', $user)->skip($start)->take($limit)->get();
-    return api_response($results, 200);
+    return api_response($results, 200, 'no_results');
   }
 
   /**

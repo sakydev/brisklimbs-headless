@@ -48,7 +48,7 @@ class PlaylistController extends Controller
 
     $user = User::find($user);
     $results = $user->playlists()->skip($start)->take($limit)->get();
-    return api_response($results, 200);
+    return api_response($results, 200, 'no_results');
   }
 
   /**
@@ -100,7 +100,7 @@ class PlaylistController extends Controller
   {
     $user = User::find($user);
     $result = $user->playlists()->find($playlist);
-    return api_response($result, 200);
+    return api_response($result, 200, 'no_results');
   }
 
   /**

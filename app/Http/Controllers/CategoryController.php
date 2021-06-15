@@ -35,7 +35,7 @@ class CategoryController extends Controller
   public function index()
   {
     $results = Category::all();
-    return api_response($results, 200);
+    return api_response($results, 200, 'no_results');
   }
 
   /**
@@ -68,7 +68,7 @@ class CategoryController extends Controller
   public function show($category)
   {
     $category = Category::find($category);
-    return api_response($category, 200);
+    return api_response($category, 200, 'no_results');
   }
 
   /**
