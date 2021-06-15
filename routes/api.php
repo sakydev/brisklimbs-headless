@@ -21,6 +21,7 @@ Route::post('/login', 'UserController@login');
 Route::group(['prefix' => 'videos', 'middleware' => ['auth:sanctum']], function() {
   Route::get('/','VideoController@index');
   Route::get('/{video}','VideoController@show');
+  Route::post('/upload','VideoController@store');
   // Route::post('/{video}/edit','VideoController@edit');
   Route::get('/search/{keyword}','VideoController@search');
   Route::get('/{video}/{field}','VideoController@show');

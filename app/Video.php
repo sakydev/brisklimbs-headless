@@ -3,9 +3,11 @@
 namespace App;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Video extends Model
 {
+  protected $fillable = ['title', 'description', 'filename', 'video_key', 'directory'];
   public function user()
   {
     return $this->hasOne(User::class);
@@ -64,5 +66,20 @@ class Video extends Model
     $results = $results->orderBy($sorting_params['sort_by'], $sorting_params['order_by']);
 
     return $results->get();
+  }
+
+  public function create_key()
+  {
+    return Str::random(8) . '_x_' . Str::random(9); // 20 chars
+  }
+
+  public function create_filename()
+  {
+    return Str::random(15);
+  }
+
+  public function target_directory()
+  {
+    return date('Y/m/d');
   }
 }
