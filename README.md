@@ -94,6 +94,6 @@ A headless video sharing soultion to adapt to any of your needs
 | ------------- | ------------- | ------------- | ------------- |
 | **GET** | /admin/categories  | Get all categories  | `limit`
 | **GET** | /admin/categories/{category}  | Get single category details  | 
-| **PUT** | /admin/categories/{category}/edit  | Update a category  | `name`, `description`
+| **PUT** | /admin/categories/{category}  | Update a category  | `name`, `description`
 | **DELETE** | /admin/categories/{category}  | Delete a category  | 
 | **POST** | /admin/categories  | Add new category  | `name`, `description`   
