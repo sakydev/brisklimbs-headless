@@ -81,14 +81,6 @@ A headless video sharing soultion to adapt to any of your needs
 | **PUT** | /admin/settings/{setting}  | Update single setting  | `name`, `value` 
 | **DELETE** | /admin/settings/{setting}  | Delete a setting  |  
 
-##### `/admin/stats`
-| Method | Endpoint  | Description | Params
-| ------------- | ------------- | ------------- | ------------- |
-| **GET** | /admin/stats  | Get overall stats  | `limit`
-| **GET** | /admin/stats/videos  | Get video stats  | `limit`
-| **GET** | /admin/stats/users  | Get users stats  | `limit` 
-| **GET** | /admin/stats/server  | Get server usage stats  | `limit`   
-
 ##### `/admin/categories`
 | Method | Endpoint  | Description | Params
 | ------------- | ------------- | ------------- | ------------- |
