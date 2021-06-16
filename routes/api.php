@@ -70,4 +70,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'admin']], f
 
   // delete category
   Route::delete('/categories/{category}', 'CategoryController@destroy');
+
+  Route::get('/settings', 'SettingController@index');
+  Route::get('/settings/{setting}', 'SettingController@show');
+  Route::post('/settings', 'SettingController@store');
+  Route::put('/settings/{setting}', 'SettingController@update');
+  Route::delete('/settings/{setting}', 'SettingController@destroy');
 });
