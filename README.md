@@ -12,19 +12,9 @@ A headless video sharing soultion to adapt to any of your needs
 | **GET** | /videos/{video}  | Single video details  | `video`    
 | **GET** | /videos/{video}/{field}  | Single video details with custom fields  | fields separated by commas    
 | **GET** | /videos/search/{keyword}  | Search videos  | `keyword` + all `/videos` params;    
-| **PUT** | /videos/{video}/edit  | Edit single video  | fields to update with their values 
+| **PUT** | /videos/{video}  | Edit single video  | fields to update with their values 
 | **POST** | /videos/upload  | Upload video  | `file`, `title`, `description`    
 | **DELETE** | /videos/{video}  | Delete a video  | `video`    
-
-##### `/videos/comments`
-| Method | Endpoint  | Description | Params
-| ------------- | ------------- | ------------- | ------------- |
-| **GET** | /videos/{video}/comments  | Get video comments  | `limit`
-| **GET** | /videos/{video}/comments/{comment}  | Single comment details  | `comment` 
-| **PUT** | /videos/{video}/comments/{comment}/edit  | Edit a comment  | `content`   
-| **POST** | /videos/{video}/comments  | Add video comment  | `content`
-| **POST** | /videos/{video}/comments/{comment}/reply  | Reply video comment  | `content`   
-| **DELETE** | /videos/{video}/comments/{comment}  | Delete video comment  | `comment`     
 
 ##### `/users`
 | Method | Endpoint  | Description | Params
@@ -37,13 +27,6 @@ A headless video sharing soultion to adapt to any of your needs
 | **DELETE** | /users/{user}  | Delete a user  | `user`    
 | **POST** | /users/register  | Create user  | `username`, `email`, `password`    
 | **POST** | /users/login  | Login user  | `username` or `email` + `password`  
-
-##### `/users/subscribers`
-| Method | Endpoint  | Description | Params
-| ------------- | ------------- | ------------- | ------------- |
-| **GET** | /users/{user}/subscribers  | Get user subs  | `limit`
-| **POST** | /users/{user}/subscribers  | Add user sub  | `username`    
-| **DELETE** | /users/{user}/subscribers  | Delete user sub  | `username`    
 
 ##### `/users/{user}/history`
 | Method | Endpoint  | Description | Params
